@@ -1,0 +1,229 @@
+/* ==========================================================================
+   ANSH TAYADE - SPIRAL GALAXY BACKGROUND & PARTICLES ENGINE
+   ========================================================================== */
+
+#galaxy-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: var(--z-galaxy);
+  pointer-events: none;
+  overflow: hidden;
+  background: #020308;
+  perspective: 1200px;
+  transition: background 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 1. Grand-Design Spiral Galaxy Photographic Layer (Dark Mode) */
+.spiral-galaxy-layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(1100px, 95vw);
+  height: max(1100px, 95vw);
+  max-width: 1500px;
+  max-height: 1500px;
+  transform: translate(-50%, -50%);
+  background-image: url('../images/spiral-galaxy.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  opacity: 0.62;
+  mix-blend-mode: screen;
+  filter: contrast(1.15) brightness(1.05);
+  /* Smooth circular vignette to seamlessly melt edges into space black */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 1) 32%, rgba(0, 0, 0, 0.75) 55%, rgba(0, 0, 0, 0) 72%);
+  mask-image: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 1) 32%, rgba(0, 0, 0, 0.75) 55%, rgba(0, 0, 0, 0) 72%);
+  animation: galacticSlowSpin 280s linear infinite;
+  will-change: transform, opacity;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes galacticSlowSpin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Luminous Core Glow Shader */
+.galactic-core-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 380px;
+  height: 380px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(254, 243, 199, 0.28) 0%, rgba(251, 191, 36, 0.15) 30%, rgba(225, 29, 72, 0.08) 60%, transparent 80%);
+  filter: blur(20px);
+  pointer-events: none;
+  animation: corePulse 8s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes corePulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 1;
+  }
+}
+
+/* 2. Majestic 3D WebGL Earth Globe Container (Light Mode) */
+#earth-3d-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#earth-3d-container canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* Interactive Canvas Layer for Stars & Shooting Stars */
+#galaxy-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Vignette to ensure maximum contrast and text readability */
+.space-vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 45%, rgba(2, 3, 8, 0.55) 75%, rgba(2, 3, 8, 0.94) 100%);
+  transition: background 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Cosmic Audio Toggle in Bottom Corner */
+.cosmic-audio-toggle {
+  position: fixed;
+  bottom: 1.75rem;
+  left: 1.75rem;
+  z-index: var(--z-navbar);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(10, 14, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.cosmic-audio-toggle:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.cosmic-audio-toggle.active {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.cosmic-audio-toggle .audio-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.audio-waves {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.audio-bar {
+  width: 2px;
+  height: 4px;
+  background-color: currentColor;
+  border-radius: 1px;
+}
+
+.cosmic-audio-toggle.active .audio-bar:nth-child(1) { animation: soundWave 0.8s infinite ease-in-out; }
+.cosmic-audio-toggle.active .audio-bar:nth-child(2) { animation: soundWave 0.8s infinite ease-in-out 0.2s; }
+.cosmic-audio-toggle.active .audio-bar:nth-child(3) { animation: soundWave 0.8s infinite ease-in-out 0.4s; }
+
+@keyframes soundWave {
+  0%, 100% { height: 3px; }
+  50% { height: 12px; }
+}
+
+@media (max-width: 768px) {
+  .spiral-galaxy-layer {
+    width: 650px;
+    height: 650px;
+    opacity: 0.55;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   LIGHT THEME ADAPTATION (EARTH ORBITAL DAYLIGHT)
+   -------------------------------------------------------------------------- */
+[data-theme="light"] #galaxy-container {
+  /* Radiant orbital space background with soft atmospheric gradient */
+  background: radial-gradient(circle at 35% 25%, #e0f2fe 0%, #f0f9ff 35%, #f8fafc 68%, #e2e8f0 100%) !important;
+}
+
+[data-theme="light"] .spiral-galaxy-layer {
+  opacity: 0 !important;
+  transform: translate(-50%, -50%) scale(1.08) !important;
+  pointer-events: none;
+}
+
+[data-theme="light"] .galactic-core-glow {
+  opacity: 0 !important;
+}
+
+[data-theme="light"] #earth-3d-container {
+  opacity: 1 !important;
+  pointer-events: auto;
+}
+
+[data-theme="light"] .space-vignette {
+  background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(240, 249, 255, 0.4) 70%, rgba(226, 232, 240, 0.85) 100%) !important;
+}
+
+[data-theme="light"] .cosmic-audio-toggle {
+  background: rgba(255, 255, 255, 0.92);
+  color: #1e293b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+

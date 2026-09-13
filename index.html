@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ansh Tayade | Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Ansh Tayade — BCA student and software developer building practical projects and automation tools.">
+  <meta name="author" content="Ansh Tayade">
+
+  <!-- Google Fonts: Unbounded & Space Grotesk (as seen in unrevealport.netlify.app) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/galaxy.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/cursor.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌌</text></svg>">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. CELESTIAL BACKGROUND (GALAXY IN DARK / EARTH IN LIGHT)
+       ======================================================================== -->
+  <div id="galaxy-container" aria-hidden="true">
+    <div class="spiral-galaxy-layer"></div>
+    <div class="galactic-core-glow"></div>
+    <div id="earth-3d-container"></div>
+    <canvas id="galaxy-canvas"></canvas>
+  </div>
+  <div class="space-vignette" aria-hidden="true"></div>
+
+  <!-- Cosmic Ambient Sound Toggle -->
+  <button id="cosmic-audio-toggle" class="cosmic-audio-toggle" aria-label="Toggle Cosmic Ambient Audio">
+    <svg class="audio-icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+    <div class="audio-waves">
+      <span class="audio-bar"></span>
+      <span class="audio-bar"></span>
+      <span class="audio-bar"></span>
+    </div>
+    <span id="audio-toggle-text">Ambience: OFF</span>
+  </button>
+
+    <!-- ========================================================================
+         2. MINIMALIST NAVBAR (WITH INSTANT DESKTOP HYPERLINKS)
+         ======================================================================== -->
+    <header id="main-navbar" class="navbar">
+    <div class="container">
+      <a href="#home" class="nav-brand">
+        Ansh Tayade
+      </a>
+
+      <!-- Desktop Navigation Hyperlinks -->
+      <nav class="nav-links-desktop" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#skills" class="nav-link">Tech Stack</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#resume" id="nav-resume-link" class="nav-link">Resume</a>
+      </nav>
+
+      <div class="nav-right-cluster">
+        <!-- Moon Icon -->
+        <button class="theme-toggle-btn" aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+        </button>
+
+        <!-- GitHub Star Button -->
+        <a href="https://github.com/anshtayade132-commits" target="_blank" rel="noopener noreferrer" class="nav-github-star" title="Star on GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span id="nav-star-count">0 ★</span>
+        </a>
+
+        <!-- Menu Hamburger (Mobile/Drawer) -->
+        <button id="menu-toggle-btn" class="nav-menu-toggle" aria-label="Open Navigation Drawer">
+          <span>Menu</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slide-out Drawer Menu -->
+  <aside id="nav-drawer" class="nav-drawer">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <span style="font-family: var(--font-display); font-size: 1.1rem; color: #fff; font-weight: 700;">NAVIGATION</span>
+      <button id="drawer-close-btn" class="nav-menu-toggle" style="padding: 0.4rem 0.8rem;">✕</button>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="#home" class="drawer-link active">Home</a></li>
+      <li><a href="#projects" class="drawer-link">Projects</a></li>
+      <li><a href="#skills" class="drawer-link">Tech Stack</a></li>
+      <li><a href="#contact" class="drawer-link">Contact</a></li>
+    </ul>
+    <div style="color: var(--text-muted); font-size: 0.85rem; font-family: var(--font-mono);">
+      anshtayade132@gmail.com
+    </div>
+  </aside>
+
+  <main>
+    <!-- ======================================================================
+         3. HERO SECTION (MATCHES REFERENCE SCREENSHOT PIXEL-FOR-PIXEL)
+         ====================================================================== -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-layout">
+          
+          <!-- Left Column -->
+          <div class="hero-left">
+            <div class="hero-greeting-row">
+              <span class="hero-greeting-text">Hi, I am</span>
+            </div>
+
+            <h1 class="hero-name">
+              <span>Ansh</span>
+              <span>Tayade</span>
+            </h1>
+
+            <div class="hero-actions-container">
+              <!-- Clean White Resume Button -->
+              <button id="hero-resume-btn" class="btn-resume-white">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                Resume
+              </button>
+
+              <!-- Secondary Row -->
+              <div class="hero-secondary-row">
+                <a href="#contact" class="btn-hire-me" style="text-decoration: none;">Hire Me</a>
+
+                <a href="https://github.com/anshtayade132-commits" target="_blank" rel="noopener noreferrer" class="social-square-btn" aria-label="GitHub Profile">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-square-btn" aria-label="LinkedIn Profile">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+
+                <a href="mailto:anshtayade132@gmail.com" class="social-square-btn" aria-label="Email Ansh">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Minimalist Mouse Scroll Pill Indicator (matches screenshot) -->
+        <div class="hero-scroll-indicator">
+          <a href="#projects" class="scroll-pill" aria-label="Scroll to projects">
+            <div class="scroll-dot"></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. PROJECTS SECTION (ONLY THE 2 PROJECTS DONE BY ANSH!)
+         ====================================================================== -->
+    <section id="projects" class="section" style="padding-top: 5rem;">
+      <div class="container">
+        
+        <div style="margin-bottom: 2.5rem;">
+          <h2 style="font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #fff;">
+            Featured Projects
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: 0.5rem;">
+            Personally engineered software applications built with Python and APIs.
+          </p>
+        </div>
+
+        <!-- Rendered dynamically via projects.js: Carax Assistant & Weather App ONLY -->
+        <div id="projects-container" class="projects-container">
+          <!-- Populated from projectsData.js -->
+        </div>
+
+        <!-- More Repositories Discovery Bar -->
+        <div class="projects-more-bar">
+          <span class="projects-more-text">Explore more of Ansh's code, experiments, and source repositories on GitHub.</span>
+          <a href="https://github.com/anshtayade132-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn-more-github">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>All Repositories on GitHub</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. CORE TECH STACK (HONEST & FOCUSED ON PYTHON & SQL)
+         ====================================================================== -->
+    <section id="skills" class="section">
+      <div class="container">
+        
+        <div style="margin-bottom: 2.5rem;">
+          <h2 style="font-family: var(--font-display); font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 800; color: #fff;">
+            Core Tech Stack
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: 0.5rem;">
+            Technologies I understand deeply and apply to build practical solutions.
+          </p>
+        </div>
+
+        <div class="skills-focus-grid">
+          <!-- Python Card -->
+          <div class="skill-focus-card">
+            <div class="skill-card-icon">🐍</div>
+            <h3 class="skill-card-title">Python Development</h3>
+            <p class="skill-card-desc">
+              My primary programming language. Experienced in building desktop GUI applications, background automation utilities, speech synthesis workflows, and REST API consumers.
+            </p>
+            <ul class="skill-topics-list">
+              <li><a href="https://docs.python.org/3/tutorial/classes.html" target="_blank" rel="noopener noreferrer" class="skill-topic-link">Object-Oriented Programming (OOP) <span class="link-arrow">↗</span></a></li>
+              <li><a href="https://docs.python.org/3/library/tkinter.html" target="_blank" rel="noopener noreferrer" class="skill-topic-link">Tkinter Desktop GUIs <span class="link-arrow">↗</span></a></li>
+              <li><a href="https://pypi.org/project/SpeechRecognition/" target="_blank" rel="noopener noreferrer" class="skill-topic-link">SpeechRecognition &amp; pyttsx3 <span class="link-arrow">↗</span></a></li>
+              <li><a href="https://docs.python.org/3/library/json.html" target="_blank" rel="noopener noreferrer" class="skill-topic-link">REST API Integrations (JSON) <span class="link-arrow">↗</span></a></li>
+            </ul>
+          </div>
+
+          <!-- MySQL Card -->
+          <div class="skill-focus-card">
+            <div class="skill-card-icon">🗄️</div>
+            <h3 class="skill-card-title">MySQL &amp; Relational SQL</h3>
+            <p class="skill-card-desc">
+              Extensive hands-on experience structuring databases, writing optimized queries, creating audit triggers, establishing foreign key relations, and aggregating multi-table joins.
+            </p>
+            <ul class="skill-topics-list">
+              <li><a href="https://dev.mysql.com/doc/refman/8.0/en/join.html" target="_blank" rel="noopener noreferrer" class="skill-topic-link">Complex SQL Joins &amp; Subqueries <span class="link-arrow">↗</span></a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Third_normal_form" target="_blank" rel="noopener noreferrer" class="skill-topic-link">Database Normalization (3NF) <span class="link-arrow">↗</span></a></li>
+              <li><a href="https://dev.mysql.com/doc/refman/8.0/en/triggers.html" target="_blank" rel="noopener noreferrer" class="skill-topic-link">Triggers &amp; Transaction Logs <span class="link-arrow">↗</span></a></li>
+              <li><a href="https://dev.mysql.com/doc/refman/8.0/en/create-view.html" target="_blank" rel="noopener noreferrer" class="skill-topic-link">Foreign Key Constraints &amp; Views <span class="link-arrow">↗</span></a></li>
+            </ul>
+          </div>
+
+          <!-- Tools Card -->
+          <div class="skill-focus-card">
+            <div class="skill-card-icon">⚙️</div>
+            <h3 class="skill-card-title">Workflow &amp; Foundation</h3>
+            <p class="skill-card-desc">
+              Essential developer workflow tools and academic foundation in computer applications (BCA) for writing maintainable software.
+            </p>
+            <ul class="skill-topics-list">
+              <li><a href="https://github.com/anshtayade132-commits" target="_blank" rel="noopener noreferrer" class="skill-topic-link">Git Version Control &amp; GitHub <span class="link-arrow">↗</span></a></li>
+              <li><a href="https://learn.microsoft.com/en-us/powershell/" target="_blank" rel="noopener noreferrer" class="skill-topic-link">Command Line &amp; PowerShell <span class="link-arrow">↗</span></a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Data_structure" target="_blank" rel="noopener noreferrer" class="skill-topic-link">Data Structures Fundamentals <span class="link-arrow">↗</span></a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html" target="_blank" rel="noopener noreferrer" class="skill-topic-link">Semantic HTML &amp; Clean Web Design <span class="link-arrow">↗</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. CONTACT SECTION (MATCHES "LET'S WORK TOGETHER")
+         ====================================================================== -->
+    <section id="contact" class="section">
+      <div class="container">
+        
+        <div class="clean-contact-box">
+          <h2 class="contact-big-title">LET'S WORK<br>TOGETHER</h2>
+          <p class="contact-subtitle-clean">
+            Looking for a dedicated Python &amp; SQL developer? Send a direct transmission to <a href="mailto:anshtayade132@gmail.com" class="contact-email-link">anshtayade132@gmail.com</a> or fill out the form.
+          </p>
+
+          <form id="contact-form">
+            <div class="clean-form-row">
+              <div>
+                <input type="text" id="form-name" class="clean-input" placeholder="Your Name" required>
+              </div>
+              <div>
+                <input type="email" id="form-email" class="clean-input" placeholder="Your Email Address" required>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1.25rem;">
+              <textarea id="form-message" class="clean-input" placeholder="Tell me about your project or opportunity..." required></textarea>
+            </div>
+
+            <button type="submit" id="contact-submit-btn" class="btn-send-message">
+              Send Message →
+            </button>
+
+            <div id="form-feedback" style="display: none;"></div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       7. CLEAN MINIMAL FOOTER WITH NAVIGATION HYPERLINKS
+       ======================================================================== -->
+  <footer class="clean-footer">
+    <div class="container">
+      <!-- 4-Column Hyperlinks Grid -->
+      <div class="footer-links-grid">
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#home" class="footer-link">Home</a></li>
+            <li><a href="#projects" class="footer-link">Featured Projects</a></li>
+            <li><a href="#skills" class="footer-link">Core Tech Stack</a></li>
+            <li><a href="#contact" class="footer-link">Contact Transmission</a></li>
+            <li><a href="#resume" id="footer-resume-btn" class="footer-link">View Resume</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Featured Projects</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://github.com/anshtayade132-commits" target="_blank" rel="noopener noreferrer" class="footer-link">Carax Voice Assistant ↗</a></li>
+            <li><a href="https://github.com/anshtayade132-commits/weather-app" target="_blank" rel="noopener noreferrer" class="footer-link">Weather Desktop App ↗</a></li>
+            <li><a href="https://github.com/anshtayade132-commits?tab=repositories" target="_blank" rel="noopener noreferrer" class="footer-link">All GitHub Repositories ↗</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Technologies</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" class="footer-link">Python Foundation ↗</a></li>
+            <li><a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener noreferrer" class="footer-link">MySQL Documentation ↗</a></li>
+            <li><a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" class="footer-link">Git Version Control ↗</a></li>
+            <li><a href="https://docs.python.org/3/library/tkinter.html" target="_blank" rel="noopener noreferrer" class="footer-link">Tkinter GUI Library ↗</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Connect</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://github.com/anshtayade132-commits" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub Profile ↗</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn Profile ↗</a></li>
+            <li><a href="mailto:anshtayade132@gmail.com" class="footer-link">Email Direct ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="footer-row-clean">
+        <div>
+          &copy; <span id="current-year">2026</span> <strong>Ansh Tayade</strong>. All rights reserved by me only.
+        </div>
+        <div style="display: flex; gap: 1.5rem; align-items: center;">
+          <a href="#home" class="footer-link">Back to Top ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       8. MODALS
+       ======================================================================== -->
+  <!-- Project Demo Modal -->
+  <div id="demo-modal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="demo-modal-title">Live Interactive Demo</h3>
+        <button id="demo-modal-close" class="modal-close" aria-label="Close modal">✕</button>
+      </div>
+      <div id="demo-modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Resume Preview Modal -->
+  <div id="resume-modal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-card" style="max-width: 760px;">
+      <div class="modal-header">
+        <div>
+          <h3 style="color: #fff; margin-bottom: 0.2rem;">Ansh Tayade — Resume</h3>
+          <span style="font-size: 0.82rem; color: var(--cyan-primary); font-family: var(--font-mono);">BCA Student | Python &amp; SQL Developer</span>
+        </div>
+        <button id="resume-modal-close" class="modal-close" aria-label="Close modal">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 2rem;">
+        <div style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 1.25rem; margin-bottom: 1.25rem;">
+          <h2 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff;">ANSH TAYADE</h2>
+          <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; color: var(--text-secondary); font-size: 0.88rem; margin-top: 0.5rem; font-family: var(--font-mono);">
+            <span>📧 <a href="mailto:anshtayade132@gmail.com" class="resume-hyperlink">anshtayade132@gmail.com</a></span>
+            <span>📍 India</span>
+            <span>🐙 <a href="https://github.com/anshtayade132-commits" target="_blank" rel="noopener noreferrer" class="resume-hyperlink">github.com/anshtayade132-commits ↗</a></span>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">Education</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            <strong>Bachelor of Computer Applications (BCA)</strong> — Undergraduate Candidate<br>
+            Focus: Software Development, Relational Databases, Computer Applications.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">Technical Skills</h4>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            <strong>Programming:</strong> Python (Tkinter, pyttsx3, Requests, Pillow)<br>
+            <strong>Databases:</strong> MySQL, Relational SQL (Joins, Triggers, Views, 3NF)<br>
+            <strong>Tools:</strong> Git, GitHub, VS Code, PowerShell
+          </p>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="font-family: var(--font-display); font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">Personal Projects</h4>
+          <ul style="padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.88rem; line-height: 1.7;">
+            <li><strong><a href="https://github.com/anshtayade132-commits" target="_blank" rel="noopener noreferrer" class="resume-hyperlink">Carax Voice Assistant ↗</a>:</strong> Python voice-controlled desktop assistant automating tasks, web queries, and spoken feedback.</li>
+            <li><strong><a href="https://github.com/anshtayade132-commits/weather-app" target="_blank" rel="noopener noreferrer" class="resume-hyperlink">Weather Desktop App ↗</a>:</strong> Python Tkinter application querying OpenWeatherMap API for live temperature &amp; atmospheric readings.</li>
+          </ul>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: flex-end; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
+          <button id="print-resume-btn" class="btn-hire-me">Print / Save PDF</button>
+          <a href="mailto:anshtayade132@gmail.com?subject=Job%20Opportunity%20-%20Ansh%20Tayade" class="btn-resume-white" style="text-decoration: none;">Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/three.min.js"></script>
+  <script src="assets/js/earth3d.js"></script>
+  <script src="assets/js/galaxy.js"></script>
+  <script src="assets/js/projectsData.js"></script>
+  <script src="assets/js/projects.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/cursor.js"></script>
+  <script src="assets/js/audio.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

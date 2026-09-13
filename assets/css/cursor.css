@@ -1,0 +1,143 @@
+/* ==========================================================================
+   ANSH TAYADE - COSMIC MOUSE CURSOR GLOW & SPOTLIGHT ANIMATION
+   ========================================================================== */
+
+/* Main Glowing Circular Aura (matches user's screenshot) */
+.cosmic-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(251, 113, 133, 0.85) 0%,
+    rgba(244, 63, 94, 0.55) 40%,
+    rgba(192, 132, 252, 0.3) 70%,
+    rgba(225, 29, 72, 0) 100%
+  );
+  box-shadow: 
+    0 0 25px rgba(244, 63, 94, 0.7),
+    0 0 50px rgba(192, 132, 252, 0.35);
+  filter: blur(3px);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: width 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease,
+              background 0.28s ease,
+              box-shadow 0.28s ease;
+  will-change: transform, width, height, opacity;
+}
+
+/* Secondary Inner Starlight Ring */
+.cosmic-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.22s ease, height 0.22s ease, border-color 0.22s ease, opacity 0.25s ease;
+  will-change: transform;
+}
+
+/* Tiny Core Dot */
+.cosmic-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 8px #ffffff, 0 0 15px var(--crimson-light);
+  pointer-events: none;
+  z-index: 100000;
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.08s ease;
+  will-change: transform;
+}
+
+/* Active Hover State (Over links, buttons, cards) */
+.cosmic-cursor-glow.cursor-hover {
+  width: 78px;
+  height: 78px;
+  background: radial-gradient(
+    circle,
+    rgba(251, 113, 133, 0.95) 0%,
+    rgba(225, 29, 72, 0.65) 45%,
+    rgba(56, 189, 248, 0.35) 75%,
+    transparent 100%
+  );
+  box-shadow: 
+    0 0 35px rgba(225, 29, 72, 0.85),
+    0 0 65px rgba(56, 189, 248, 0.45);
+  filter: blur(4px);
+}
+
+.cosmic-cursor-ring.cursor-hover {
+  width: 54px;
+  height: 54px;
+  border-color: rgba(251, 113, 133, 0.7);
+  border-width: 1.5px;
+  box-shadow: 0 0 15px rgba(225, 29, 72, 0.5);
+}
+
+/* Clicking / Active State */
+.cosmic-cursor-glow.cursor-click {
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(225, 29, 72, 0.85) 50%,
+    transparent 100%
+  );
+  box-shadow: 0 0 45px rgba(225, 29, 72, 1);
+  transform: translate3d(var(--cursor-x, 0), var(--cursor-y, 0), 0) translate(-50%, -50%) scale(0.85);
+}
+
+/* Starlight Trail Dust Particle */
+.cosmic-trail-particle {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99997;
+  background: rgba(251, 113, 133, 0.8);
+  box-shadow: 0 0 8px rgba(244, 63, 94, 0.8);
+  animation: cosmicTrailFade 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cosmicTrailFade {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.2);
+    opacity: 0;
+  }
+}
+
+/* Disable on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cosmic-cursor-glow,
+  .cosmic-cursor-ring,
+  .cosmic-cursor-dot,
+  .cosmic-trail-particle {
+    display: none !important;
+  }
+}
