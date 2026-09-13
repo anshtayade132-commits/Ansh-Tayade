@@ -16,7 +16,7 @@ Or with Python's built-in server:
 ```powershell
 python -m http.server 3000
 ```
-Then open your browser to [http://localhost:3000](http://localhost:3000).
+Then open your browser to [https://anshtayade.netlify.app/]https://anshtayade.netlify.app/.
 
 You can also simply double-click `index.html` to view it directly in Chrome, Edge, Brave, or Firefox.
 
