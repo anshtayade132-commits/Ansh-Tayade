@@ -137,9 +137,7 @@ function initResumeModal() {
     }
   };
 
-  if (heroResumeBtn) heroResumeBtn.addEventListener('click', openModal);
-  if (navResumeLink) navResumeLink.addEventListener('click', openModal);
-  if (footerResumeBtn) footerResumeBtn.addEventListener('click', openModal);
+  // Resume buttons now directly open assets/resume.pdf in a new tab
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
   if (modal) {
