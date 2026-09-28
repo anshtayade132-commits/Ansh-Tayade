@@ -46,10 +46,8 @@ const projectsData = [
       { name: "Web APIs", url: "https://developer.mozilla.org/en-US/docs/Web/API" }
     ],
     github: "https://github.com/anshtayade132-commits",
-    demo: "#demo-carax",
     image: "assets/images/carax-assistant.svg",
-    demoType: "carax",
-    hasDemo: true,
+    hasDemo: false,
     featured: true,
     highlights: [
       "Voice recognition with ambient noise calibration",
@@ -71,10 +69,8 @@ const projectsData = [
       { name: "Pillow", url: "https://python-pillow.org/" }
     ],
     github: "https://github.com/anshtayade132-commits/weather-app",
-    demo: "#demo-weather",
     image: "assets/images/weather-app.svg",
-    demoType: "weather",
-    hasDemo: true,
+    hasDemo: false,
     featured: true,
     highlights: [
       "Live OpenWeatherMap REST API telemetry queries",
