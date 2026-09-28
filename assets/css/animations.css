@@ -115,19 +115,3 @@
   animation: cursorBlink 1s infinite;
 }
 
-/* Face Recognition Laser Scanner */
-@keyframes faceScanner {
-  0% {
-    top: 5%;
-    opacity: 0.2;
-  }
-  50% {
-    top: 92%;
-    opacity: 0.9;
-  }
-  100% {
-    top: 5%;
-    opacity: 0.2;
-  }
-}
-

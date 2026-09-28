@@ -23,9 +23,8 @@ const projectsData = [
       { name: "python-dotenv", url: "https://pypi.org/project/python-dotenv/" }
     ],
     github: "https://github.com/anshtayade132-commits/Face-Recognition-System",
-    demo: "#demo-face-recognition",
     image: "assets/images/face-recognition.svg",
-    demoType: "face-recognition",
+    hasDemo: false,
     featured: true,
     highlights: [
       "Real-time webcam biometric detection & Haar cascade face registration",
@@ -50,6 +49,7 @@ const projectsData = [
     demo: "#demo-carax",
     image: "assets/images/carax-assistant.svg",
     demoType: "carax",
+    hasDemo: true,
     featured: true,
     highlights: [
       "Voice recognition with ambient noise calibration",
@@ -74,6 +74,7 @@ const projectsData = [
     demo: "#demo-weather",
     image: "assets/images/weather-app.svg",
     demoType: "weather",
+    hasDemo: true,
     featured: true,
     highlights: [
       "Live OpenWeatherMap REST API telemetry queries",
