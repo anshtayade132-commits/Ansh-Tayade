@@ -10,6 +10,31 @@
 
 const projectsData = [
   {
+    id: "face-recognition-system",
+    title: "Face Recognition System",
+    category: "ai",
+    badge: "Computer Vision & MySQL AI",
+    description: "A real-time biometric face recognition system powered by Python, OpenCV, face_recognition, and MySQL. Features live webcam stream analysis, 128-d deep facial embeddings, Euclidean distance matching, and automated identity retrieval from a relational MySQL database.",
+    technologies: [
+      { name: "Python", url: "https://www.python.org/" },
+      { name: "OpenCV", url: "https://opencv.org/" },
+      { name: "face_recognition", url: "https://github.com/ageitgey/face_recognition" },
+      { name: "MySQL", url: "https://www.mysql.com/" },
+      { name: "python-dotenv", url: "https://pypi.org/project/python-dotenv/" }
+    ],
+    github: "https://github.com/anshtayade132-commits/Face-Recognition-System",
+    demo: "#demo-face-recognition",
+    image: "assets/images/face-recognition.svg",
+    demoType: "face-recognition",
+    featured: true,
+    highlights: [
+      "Real-time webcam biometric detection & Haar cascade face registration",
+      "128-dimensional deep facial vector encodings with < 0.6 distance threshold matching",
+      "Relational MySQL integration retrieving person contact, age, gender, and residency data",
+      "Secure database credential architecture using python-dotenv and .env"
+    ]
+  },
+  {
     id: "carax-voice-assistant",
     title: "Carax Voice Assistant",
     category: "ai",

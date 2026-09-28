@@ -22,9 +22,17 @@ You can also simply double-click `index.html` to view it directly in Chrome, Edg
 
 ---
 
+## 🚀 Featured Projects
+
+1. **[Face Recognition System](https://github.com/anshtayade132-commits/Face-Recognition-System)**: Real-time biometric face detection, webcam face registration, 128-d deep facial embeddings, and MySQL database retrieval.
+2. **[Carax Voice Assistant](https://github.com/anshtayade132-commits)**: Voice-controlled desktop assistant automating tasks, web queries, and spoken feedback via speech recognition & pyttsx3.
+3. **[Weather App](https://github.com/anshtayade132-commits/weather-app)**: Tkinter desktop application querying OpenWeatherMap API for live atmospheric telemetry.
+
+---
+
 ## 🛠 Adding New Projects
 
-To add a new project to your portfolio, open [`assets/js/projectsData.js`](file:///C:/ansh-portfolio/assets/js/projectsData.js) and add a new object to the array:
+To add a new project to your portfolio, open [`assets/js/projectsData.js`](file:///C:/Ansh%20Tayade/assets/js/projectsData.js) and add a new object to the array:
 
 ```javascript
 {
