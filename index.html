@@ -13,12 +13,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Unbounded:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/variables.css">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="assets/css/galaxy.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-  <link rel="stylesheet" href="assets/css/cursor.css">
-  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/variables.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/main.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/galaxy.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/components.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/cursor.css?v=2.2">
+  <link rel="stylesheet" href="assets/css/animations.css?v=2.2">
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌌</text></svg>">
 </head>
@@ -159,7 +159,7 @@
     </section>
 
     <!-- ======================================================================
-         4. PROJECTS SECTION (ONLY THE 2 PROJECTS DONE BY ANSH!)
+         4. PROJECTS SECTION (3 FEATURED PROJECTS BY ANSH)
          ====================================================================== -->
     <section id="projects" class="section" style="padding-top: 5rem;">
       <div class="container">
@@ -173,9 +173,95 @@
           </p>
         </div>
 
-        <!-- Rendered dynamically via projects.js: Carax Assistant & Weather App ONLY -->
+        <!-- Rendered with instant static HTML and progressive enhancement -->
         <div id="projects-container" class="projects-container">
-          <!-- Populated from projectsData.js -->
+          <!-- 1. Face Recognition System -->
+          <article class="clean-project-card" data-id="face-recognition-system">
+            <a href="https://github.com/anshtayade132-commits/Face-Recognition-System" target="_blank" rel="noopener noreferrer" class="project-shot-wrapper" title="Open Face Recognition System repository on GitHub">
+              <img src="assets/images/face-recognition.svg" alt="Face Recognition System" loading="lazy">
+            </a>
+            <div class="project-meta-box">
+              <span class="project-badge-tag">Computer Vision &amp; MySQL AI</span>
+              <h3 class="project-heading">
+                <a href="https://github.com/anshtayade132-commits/Face-Recognition-System" target="_blank" rel="noopener noreferrer" class="project-title-link" title="Open repository on GitHub">
+                  Face Recognition System
+                  <svg class="inline-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+              </h3>
+              <p class="project-summary">A real-time biometric face recognition system powered by Python, OpenCV, face_recognition, and MySQL. Features live webcam stream analysis, 128-d deep facial embeddings, Euclidean distance matching, and automated identity retrieval from a relational MySQL database.</p>
+              <div class="project-tech-pills">
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for Python">Python <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+                <a href="https://opencv.org/" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for OpenCV">OpenCV <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+                <a href="https://github.com/ageitgey/face_recognition" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for face_recognition">face_recognition <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+                <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for MySQL">MySQL <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+                <a href="https://pypi.org/project/python-dotenv/" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for python-dotenv">python-dotenv <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/anshtayade132-commits/Face-Recognition-System" target="_blank" rel="noopener noreferrer" class="btn-resume-white" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; padding: 0.6rem 1.4rem; font-size: 0.9rem;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Carax Voice Assistant -->
+          <article class="clean-project-card" data-id="carax-voice-assistant">
+            <a href="https://github.com/anshtayade132-commits" target="_blank" rel="noopener noreferrer" class="project-shot-wrapper" title="Open Carax Voice Assistant repository on GitHub">
+              <img src="assets/images/carax-assistant.svg" alt="Carax Voice Assistant" loading="lazy">
+            </a>
+            <div class="project-meta-box">
+              <span class="project-badge-tag">AI Voice Assistant</span>
+              <h3 class="project-heading">
+                <a href="https://github.com/anshtayade132-commits" target="_blank" rel="noopener noreferrer" class="project-title-link" title="Open repository on GitHub">
+                  Carax Voice Assistant
+                  <svg class="inline-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+              </h3>
+              <p class="project-summary">An intelligent voice assistant built with Python that accepts spoken natural language commands, automates desktop tasks, conducts real-time web queries, and delivers synthesized voice feedback.</p>
+              <div class="project-tech-pills">
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for Python">Python <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+                <a href="https://pypi.org/project/SpeechRecognition/" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for Speech Recognition">Speech Recognition <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+                <a href="https://pyttsx3.readthedocs.io/" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for pyttsx3">pyttsx3 <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for Web APIs">Web APIs <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/anshtayade132-commits" target="_blank" rel="noopener noreferrer" class="btn-resume-white" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; padding: 0.6rem 1.4rem; font-size: 0.9rem;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Weather App -->
+          <article class="clean-project-card" data-id="weather-app">
+            <a href="https://github.com/anshtayade132-commits/weather-app" target="_blank" rel="noopener noreferrer" class="project-shot-wrapper" title="Open Weather App repository on GitHub">
+              <img src="assets/images/weather-app.svg" alt="Weather App" loading="lazy">
+            </a>
+            <div class="project-meta-box">
+              <span class="project-badge-tag">Python Desktop App</span>
+              <h3 class="project-heading">
+                <a href="https://github.com/anshtayade132-commits/weather-app" target="_blank" rel="noopener noreferrer" class="project-title-link" title="Open repository on GitHub">
+                  Weather App
+                  <svg class="inline-link-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+              </h3>
+              <p class="project-summary">A clean desktop application built with Python, Tkinter, and OpenWeatherMap API that fetches live temperature readings, atmospheric condition descriptions, weather icons, and an active digital clock.</p>
+              <div class="project-tech-pills">
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for Python">Python <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+                <a href="https://docs.python.org/3/library/tkinter.html" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for Tkinter">Tkinter <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+                <a href="https://openweathermap.org/api" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for OpenWeather API">OpenWeather API <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+                <a href="https://python-pillow.org/" target="_blank" rel="noopener noreferrer" class="tech-tag" title="Documentation for Pillow">Pillow <span style="opacity: 0.45; font-size: 0.72rem;">↗</span></a>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/anshtayade132-commits/weather-app" target="_blank" rel="noopener noreferrer" class="btn-resume-white" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; padding: 0.6rem 1.4rem; font-size: 0.9rem;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                  View Code
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
 
         <!-- More Repositories Discovery Bar -->
@@ -437,15 +523,15 @@
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Scripts with cache-busting -->
   <script src="assets/js/three.min.js"></script>
-  <script src="assets/js/earth3d.js"></script>
-  <script src="assets/js/galaxy.js"></script>
-  <script src="assets/js/projectsData.js"></script>
-  <script src="assets/js/projects.js"></script>
-  <script src="assets/js/theme.js"></script>
-  <script src="assets/js/cursor.js"></script>
-  <script src="assets/js/audio.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/earth3d.js?v=2.2"></script>
+  <script src="assets/js/galaxy.js?v=2.2"></script>
+  <script src="assets/js/projectsData.js?v=2.2"></script>
+  <script src="assets/js/projects.js?v=2.2"></script>
+  <script src="assets/js/theme.js?v=2.2"></script>
+  <script src="assets/js/cursor.js?v=2.2"></script>
+  <script src="assets/js/audio.js?v=2.2"></script>
+  <script src="assets/js/main.js?v=2.2"></script>
 </body>
 </html>

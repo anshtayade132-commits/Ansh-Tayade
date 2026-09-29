@@ -3,8 +3,9 @@
  * ANSH TAYADE - PROJECTS CATALOG DATA SOURCE
  * ============================================================================
  * Contains only Ansh's real personally developed projects:
- * 1. Carax Voice Assistant
- * 2. Weather App
+ * 1. Face Recognition System (Python, OpenCV, MySQL)
+ * 2. Carax Voice Assistant (Python, Speech Recognition, pyttsx3)
+ * 3. Weather App (Python, Tkinter, OpenWeather API)
  * ============================================================================
  */
 

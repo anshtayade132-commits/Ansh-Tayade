@@ -26,7 +26,8 @@ class ProjectsController {
   }
 
   render() {
-    const data = window.projectsData || [];
+    const data = window.projectsData;
+    if (!data || !data.length) return;
 
     this.container.innerHTML = data.map(project => `
       <article class="clean-project-card" data-id="${project.id}">
